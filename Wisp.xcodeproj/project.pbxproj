@@ -19,6 +19,8 @@
 		284CE69F19555A48000A1298 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CE68719555A48000A1298 /* UIKit.framework */; };
 		284CE6A719555A48000A1298 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284CE6A519555A48000A1298 /* InfoPlist.strings */; };
 		284CE6A919555A48000A1298 /* WispTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 284CE6A819555A48000A1298 /* WispTests.m */; };
+		284CE6B319555A72000A1298 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284CE6B219555A72000A1298 /* MainStoryboard.storyboard */; };
+		284CE6B619555C70000A1298 /* STTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284CE6B519555C70000A1298 /* STTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		284CE6A419555A48000A1298 /* WispTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WispTests-Info.plist"; sourceTree = "<group>"; };
 		284CE6A619555A48000A1298 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		284CE6A819555A48000A1298 /* WispTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WispTests.m; sourceTree = "<group>"; };
+		284CE6B219555A72000A1298 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		284CE6B419555C70000A1298 /* STTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTableViewController.h; sourceTree = "<group>"; };
+		284CE6B519555C70000A1298 /* STTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,9 @@
 				284CE69319555A48000A1298 /* STAppDelegate.m */,
 				284CE69519555A48000A1298 /* Images.xcassets */,
 				284CE68A19555A48000A1298 /* Supporting Files */,
+				284CE6B219555A72000A1298 /* MainStoryboard.storyboard */,
+				284CE6B419555C70000A1298 /* STTableViewController.h */,
+				284CE6B519555C70000A1298 /* STTableViewController.m */,
 			);
 			path = Wisp;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284CE6B319555A72000A1298 /* MainStoryboard.storyboard in Resources */,
 				284CE68E19555A48000A1298 /* InfoPlist.strings in Resources */,
 				284CE69619555A48000A1298 /* Images.xcassets in Resources */,
 			);
@@ -240,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284CE6B619555C70000A1298 /* STTableViewController.m in Sources */,
 				284CE69019555A48000A1298 /* main.m in Sources */,
 				284CE69419555A48000A1298 /* STAppDelegate.m in Sources */,
 			);
