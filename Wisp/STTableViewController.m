@@ -26,7 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titlesArray = [NSArray arrayWithObjects:@"title1", @"title2", @"title3", nil];
+    
+//    NSURL *feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
+//    NSXMLParser *
+    
+    
+//    self.titlesArray = [NSArray arrayWithObjects:@"title1", @"title2", @"title3", nil];
 }
 
 - (void)didReceiveMemoryWarning

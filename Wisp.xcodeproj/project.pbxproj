@@ -21,6 +21,7 @@
 		284CE6A919555A48000A1298 /* WispTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 284CE6A819555A48000A1298 /* WispTests.m */; };
 		284CE6B319555A72000A1298 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284CE6B219555A72000A1298 /* MainStoryboard.storyboard */; };
 		284CE6B619555C70000A1298 /* STTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284CE6B519555C70000A1298 /* STTableViewController.m */; };
+		284CE6B919557850000A1298 /* STFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 284CE6B819557850000A1298 /* STFeedItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		284CE6B219555A72000A1298 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		284CE6B419555C70000A1298 /* STTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTableViewController.h; sourceTree = "<group>"; };
 		284CE6B519555C70000A1298 /* STTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTableViewController.m; sourceTree = "<group>"; };
+		284CE6B719557850000A1298 /* STFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFeedItem.h; sourceTree = "<group>"; };
+		284CE6B819557850000A1298 /* STFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFeedItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				284CE6B219555A72000A1298 /* MainStoryboard.storyboard */,
 				284CE6B419555C70000A1298 /* STTableViewController.h */,
 				284CE6B519555C70000A1298 /* STTableViewController.m */,
+				284CE6B719557850000A1298 /* STFeedItem.h */,
+				284CE6B819557850000A1298 /* STFeedItem.m */,
 			);
 			path = Wisp;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CE6B619555C70000A1298 /* STTableViewController.m in Sources */,
+				284CE6B919557850000A1298 /* STFeedItem.m in Sources */,
 				284CE69019555A48000A1298 /* main.m in Sources */,
 				284CE69419555A48000A1298 /* STAppDelegate.m in Sources */,
 			);
