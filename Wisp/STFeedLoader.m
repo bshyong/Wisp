@@ -11,8 +11,13 @@
 @implementation STFeedLoader
 
 -(void)loadItemsFromURL:(NSURL *)url {
+//  activate activity indicator
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 //  code to load items from URL
-//    and parse them using NXMLParser
+//  and parse them using NXMLParser
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    [parser setDelegate:self];
+    
 }
 
 @end

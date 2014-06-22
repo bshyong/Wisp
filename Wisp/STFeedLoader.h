@@ -21,7 +21,7 @@
 @end
 
 
-@interface STFeedLoader : NSObject {
+@interface STFeedLoader : NSObject <NSXMLParserDelegate>{
     id <STFeedLoaderDelegate> _delegate;
 }
 

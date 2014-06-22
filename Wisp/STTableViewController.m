@@ -29,7 +29,7 @@
     
     NSURL *feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
     STFeedLoader *feedloader = [[STFeedLoader alloc] init];
-    // assign delegate
+    // assign ViewController as delegate of feedloader
     feedloader.delegate = self;
     [feedloader loadItemsFromURL:feedURL];
     
