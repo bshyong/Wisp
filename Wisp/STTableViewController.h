@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STFeedLoader.h"
 
-@interface STTableViewController : UITableViewController
-
-@property (nonatomic, strong) NSArray *titlesArray;
+@interface STTableViewController : UITableViewController <STFeedLoaderDelegate>
 
 @end

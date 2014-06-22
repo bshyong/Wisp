@@ -12,5 +12,6 @@
     @property(strong, nonatomic) NSString *title;
     @property(strong, nonatomic) NSURL *imageURL;
     @property(strong, nonatomic) NSDate *pubDate;
+    @property(strong, nonatomic) NSURL *itemURL;
     @property(strong, nonatomic) NSString *source;
 @end

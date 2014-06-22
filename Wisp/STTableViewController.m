@@ -27,11 +27,23 @@
 {
     [super viewDidLoad];
     
-//    NSURL *feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
+    NSURL *feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
+    STFeedLoader *feedloader = [[STFeedLoader alloc] init];
+    // assign delegate
+    feedloader.delegate = self;
+    [feedloader loadItemsFromURL:feedURL];
+    
 //    NSXMLParser *
     
-    
-//    self.titlesArray = [NSArray arrayWithObjects:@"title1", @"title2", @"title3", nil];
+}
+
+# pragma mark - Implement protocol methods
+-(void)processCompleted {
+//    completion code
+}
+
+-(void)processHasErrors {
+//    handle errors
 }
 
 - (void)didReceiveMemoryWarning
