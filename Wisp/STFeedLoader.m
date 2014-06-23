@@ -34,7 +34,8 @@
         new_item.pubDate = pubDate;
         // TODO: parse for larger version of picture
         new_item.imageURL = [NSURL URLWithString:[[item child:@"media:content"] attribute:@"url"]];
-        
+        // add new item to array of items
+        [[self items]addObject:new_item];
     }];
     // call delegate method to indicate that method has completed
 	[(id)[self delegate] performSelectorOnMainThread:@selector(processCompleted)
