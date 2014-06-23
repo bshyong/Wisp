@@ -10,5 +10,5 @@
 #import "STFeedLoader.h"
 
 @interface STTableViewController : UITableViewController <STFeedLoaderDelegate>
-
+@property(nonatomic, strong) NSArray *items;
 @end

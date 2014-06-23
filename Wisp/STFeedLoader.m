@@ -19,27 +19,30 @@
 //  and parse them using RaptureXML
     NSData *feed_data = [NSData dataWithContentsOfURL:url];
     // fetch the root node (should be 'channel')
-    RXMLElement *root_node = [RXMLElement elementFromXMLData:feed_data];
-    
-    [root_node iterate:@"item" usingBlock: ^(RXMLElement *item) {
+    RXMLElement *root_node = [[RXMLElement elementFromXMLData:feed_data] child:@"channel"];
+    NSArray *feed_items = [root_node children:@"item"];
+    NSMutableArray *results = [NSMutableArray arrayWithCapacity:feed_items.count];
+
+    for (RXMLElement *e in feed_items) {
         STFeedItem *new_item = [[STFeedItem alloc] init];
-        new_item.title = [item child:@"title"].text;
-        new_item.source = [item child:@"source"].text;
-        new_item.itemURL = [NSURL URLWithString:[item child:@"link"].text];
+        new_item.title = [e child:@"title"].text;
+        new_item.source = [e child:@"source"].text;
+        new_item.itemURL = [NSURL URLWithString:[e child:@"link"].text];
         // parse for date
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         [df setDateFormat:@"EEE dd, MMM yyyy HH:mm:ss ZZZ"];
         [df setLocale:[NSLocale localeWithLocaleIdentifier:@"EN"]];
-        NSDate *pubDate = [df dateFromString:[item child:@"pubDate"].text];
+        NSDate *pubDate = [df dateFromString:[e child:@"pubDate"].text];
         new_item.pubDate = pubDate;
         // TODO: parse for larger version of picture
-        new_item.imageURL = [NSURL URLWithString:[[item child:@"media:content"] attribute:@"url"]];
+        new_item.imageURL = [NSURL URLWithString:[[e child:@"media:content"] attribute:@"url"]];
         // add new item to array of items
-        [[self items]addObject:new_item];
-    }];
+        [results addObject:new_item];
+    }
+
     // call delegate method to indicate that method has completed
-	[(id)[self delegate] performSelectorOnMainThread:@selector(processCompleted)
-                                          withObject:nil
+	[(id)[self delegate] performSelectorOnMainThread:@selector(processCompleted:)
+                                          withObject:results
                                        waitUntilDone:NO];
 }
 

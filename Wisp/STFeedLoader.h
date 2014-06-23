@@ -15,7 +15,7 @@
 @protocol STFeedLoaderDelegate <NSObject>
 // define protocol functions that can be used
 // in any class using this delegate
--(void)processCompleted;
+-(void)processCompleted:(NSArray *)results;
 -(void)processHasErrors;
 
 @end
@@ -25,7 +25,6 @@
     id <STFeedLoaderDelegate> _delegate;
 }
 
-@property(strong, nonatomic) NSMutableArray *items;
 // define the delegate property
 @property(strong, nonatomic) id delegate;
 

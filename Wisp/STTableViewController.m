@@ -32,14 +32,14 @@
     // assign ViewController as delegate of feedloader
     feedloader.delegate = self;
     [feedloader loadItemsFromURL:feedURL];
-    
-//    NSXMLParser *
-    
 }
 
 # pragma mark - Implement protocol methods
--(void)processCompleted {
-//    completion code
+-(void)processCompleted:(NSArray *)results{
+//  completion finished parsing, returns object
+    self.items = results;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.tableView reloadData];
 }
 
 -(void)processHasErrors {
@@ -63,15 +63,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.titlesArray count];
+    return [self.items count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [self.titlesArray objectAtIndex:indexPath.row];
-    
+    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] title];
+
     return cell;
 }
 
