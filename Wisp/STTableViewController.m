@@ -9,7 +9,10 @@
 #import "STTableViewController.h"
 
 @interface STTableViewController ()
-
+{
+    UIRefreshControl *refreshControl;
+    NSURL *feedURL;
+}
 @end
 
 @implementation STTableViewController
@@ -26,8 +29,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
     
-    NSURL *feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
+    //add refresh control to the table view
+    refreshControl = [[UIRefreshControl alloc] init];
+    
+    [refreshControl addTarget:self
+                       action:@selector(refreshInvoked:forState:)
+             forControlEvents:UIControlEventValueChanged];
+    
+    NSString* fetchMessage = [NSString stringWithFormat:@"Fetching: %@",feedURL];
+    
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage
+                                                                     attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
+    [self.tableView addSubview: refreshControl];
+    [self refreshFeed];
+}
+
+// implement refresh control delegate
+-(void)refreshInvoked:(id)sender forState:(UIControlState)state{
+    [self refreshFeed];
+}
+
+-(void)refreshFeed {
     STFeedLoader *feedloader = [[STFeedLoader alloc] init];
     // assign ViewController as delegate of feedloader
     feedloader.delegate = self;
@@ -39,6 +63,7 @@
 //  completion finished parsing, returns object
     self.items = results;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [refreshControl endRefreshing];
     [self.tableView reloadData];
 }
 
