@@ -10,4 +10,11 @@
 
 @implementation STFeedItem
 
+-(NSString *)formattedDate {
+    // use this method to format publication date
+    // look into formatting according to User settings/locale
+    NSDateFormatter *nd = [[NSDateFormatter alloc] init];
+    return [nd stringFromDate:self.pubDate];
+}
+
 @end

@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/"];
+    feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/entertainment"];
     
     //add refresh control to the table view
     refreshControl = [[UIRefreshControl alloc] init];

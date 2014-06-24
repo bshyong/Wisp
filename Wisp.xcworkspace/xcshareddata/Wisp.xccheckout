@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EB1CBDF4-0F47-40DE-8ACA-5B1CA3DF6800</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Wisp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>85D0AB0E-939E-45AF-A164-8B035D6C55B4</key>
+		<string>ssh://bitbucket.org/bshyong/wisp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Wisp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>85D0AB0E-939E-45AF-A164-8B035D6C55B4</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://bitbucket.org/bshyong/wisp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>85D0AB0E-939E-45AF-A164-8B035D6C55B4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85D0AB0E-939E-45AF-A164-8B035D6C55B4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Wisp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -13,6 +13,7 @@
 @implementation STFeedLoader
 
 -(void)loadItemsFromURL:(NSURL *)url {
+//    TODO: this method should be asynchronous: use AFNetworking
 //  activate activity indicator
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 //  code to load items from URL
