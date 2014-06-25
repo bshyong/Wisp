@@ -7,6 +7,7 @@
 //
 
 #import "STTableViewController.h"
+#import "STTopCell.h"
 
 @interface STTableViewController ()
 {
@@ -94,10 +95,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] title];
+    NSLog(@"loading cell %d", indexPath.row);
+    if(indexPath.row==0){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopCell" forIndexPath:indexPath];
+        STTopCell *topCell = (STTopCell *)cell;
+        topCell.topDate.text = @"topDate";
+        topCell.topItemTimeAgo.text = @"topTimeAgo";
+        topCell.topItemTitle.text = [[self.items objectAtIndex:0] title];
+        return topCell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
+        cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] title];
+        return cell;
+    }
+    return nil;
+}
 
-    return cell;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row==0){
+        return 175;
+    }
+    return 150;
 }
 
 
