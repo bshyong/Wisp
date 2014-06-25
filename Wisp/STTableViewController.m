@@ -9,6 +9,8 @@
 #import "STTableViewController.h"
 #import "STTopCell.h"
 #import "STTableViewCell.h"
+#import "STWebViewController.h"
+#import "STFeedItem.h"
 
 @interface STTableViewController ()
 {
@@ -166,15 +168,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    UIViewController *sc = (UIViewController *)segue.sourceViewController;
+    if ([segue.identifier isEqualToString:@"showFeedItem"]) {
+        [sc.navigationController setNavigationBarHidden:NO animated: NO];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        STWebViewController *wbc = (STWebViewController *)segue.destinationViewController;
+        wbc.itemURL = ((STFeedItem *)[self.items objectAtIndex:indexPath.row]).itemURL;
+    }
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
 }
-*/
+
 
 @end
