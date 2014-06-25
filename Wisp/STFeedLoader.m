@@ -36,6 +36,7 @@
         NSDate *pubDate = [df dateFromString:[e child:@"pubDate"].text];
         new_item.pubDate = pubDate;
         // TODO: parse for larger version of picture
+//        NSLog(@"parsing %@", [e child:@"media:content"]);
         new_item.imageURL = [NSURL URLWithString:[[e child:@"media:content"] attribute:@"url"]];
         // add new item to array of items
         [results addObject:new_item];

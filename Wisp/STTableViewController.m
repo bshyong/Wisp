@@ -100,6 +100,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    STFeedItem *item = [self.items objectAtIndex:indexPath.row];
+//        NSLog(@"image URL: %@", item.imageURL);
     if(indexPath.row==0){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopCell" forIndexPath:indexPath];
         STTopCell *topCell = (STTopCell *)cell;
@@ -107,7 +109,9 @@
         topCell.topItemTimeAgo.text = @"topTimeAgo";
         [topCell.topItemTitle setNumberOfLines:0];
         [topCell.topItemTitle sizeToFit];
-        topCell.topItemTitle.text = [[self.items objectAtIndex:0] title];
+        topCell.topItemTitle.text = [item title];
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [item imageURL]];
+        topCell.topItemImage.image = [UIImage imageWithData:imageData];
         return topCell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
@@ -115,7 +119,9 @@
         standardCell.itemTimeAgo.text = @"timeAgo";
         [standardCell.itemTitle setNumberOfLines:0];
         [standardCell.itemTitle sizeToFit];
-        standardCell.itemTitle.text = [[self.items objectAtIndex:indexPath.row] title];
+        standardCell.itemTitle.text = [item title];
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [item imageURL]];
+        standardCell.itemImage.image = [UIImage imageWithData:imageData];
         return standardCell;
     }
     return nil;
