@@ -27,8 +27,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="topCellTitle" text="News title goes here" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="RHG-Op-KjQ">
-                                            <rect key="frame" x="20" y="126" width="280" height="28"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="topCellTitle" text="News title goes here" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="RHG-Op-KjQ">
+                                            <rect key="frame" x="20" y="130" width="280" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="highlightedColor"/>
@@ -41,6 +41,8 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="RHG-Op-KjQ" firstAttribute="leading" secondItem="ivt-qb-RGH" secondAttribute="leading" constant="20" id="IJt-mh-ZZc"/>
+                                        <constraint firstAttribute="trailing" secondItem="RHG-Op-KjQ" secondAttribute="trailing" constant="20" id="abs-gl-CUa"/>
                                         <constraint firstAttribute="bottom" secondItem="RHG-Op-KjQ" secondAttribute="bottom" constant="20" id="zxk-XO-6n4"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -57,8 +59,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="News title goes here" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gbd-sx-9Y1">
-                                            <rect key="frame" x="20" y="101" width="280" height="28"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News title goes here" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gbd-sx-9Y1">
+                                            <rect key="frame" x="20" y="105" width="280" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="highlightedColor"/>
@@ -71,6 +73,8 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="gbd-sx-9Y1" firstAttribute="leading" secondItem="JQs-Pi-Uod" secondAttribute="leading" constant="20" id="2N9-mG-fj4"/>
+                                        <constraint firstAttribute="trailing" secondItem="gbd-sx-9Y1" secondAttribute="trailing" constant="20" id="fnH-OQ-cTp"/>
                                         <constraint firstAttribute="bottom" secondItem="gbd-sx-9Y1" secondAttribute="bottom" constant="20" id="mfd-Oa-PX5"/>
                                     </constraints>
                                 </tableViewCellContentView>
