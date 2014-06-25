@@ -101,12 +101,16 @@
         STTopCell *topCell = (STTopCell *)cell;
         topCell.topDate.text = @"topDate";
         topCell.topItemTimeAgo.text = @"topTimeAgo";
+        [topCell.topItemTitle setNumberOfLines:0];
+        [topCell.topItemTitle sizeToFit];
         topCell.topItemTitle.text = [[self.items objectAtIndex:0] title];
         return topCell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
         STTableViewCell *standardCell = (STTableViewCell *)cell;
         standardCell.itemTimeAgo.text = @"timeAgo";
+        [standardCell.itemTitle setNumberOfLines:0];
+        [standardCell.itemTitle sizeToFit];
         standardCell.itemTitle.text = [[self.items objectAtIndex:indexPath.row] title];
         return standardCell;
     }
