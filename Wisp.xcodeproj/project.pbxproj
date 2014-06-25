@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28286652195A93B500DC0492 /* STTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28286651195A93B500DC0492 /* STTopCell.m */; };
+		28286655195A9C4B00DC0492 /* STTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28286654195A9C4B00DC0492 /* STTableViewCell.m */; };
 		284CE68419555A48000A1298 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CE68319555A48000A1298 /* Foundation.framework */; };
 		284CE68619555A48000A1298 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CE68519555A48000A1298 /* CoreGraphics.framework */; };
 		284CE68819555A48000A1298 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284CE68719555A48000A1298 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		28286650195A93B500DC0492 /* STTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTopCell.h; sourceTree = "<group>"; };
 		28286651195A93B500DC0492 /* STTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTopCell.m; sourceTree = "<group>"; };
+		28286653195A9C4B00DC0492 /* STTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTableViewCell.h; sourceTree = "<group>"; };
+		28286654195A9C4B00DC0492 /* STTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTableViewCell.m; sourceTree = "<group>"; };
 		284CE68019555A48000A1298 /* Wisp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wisp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284CE68319555A48000A1298 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		284CE68519555A48000A1298 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 				28286651195A93B500DC0492 /* STTopCell.m */,
 				284CE6B419555C70000A1298 /* STTableViewController.h */,
 				284CE6B519555C70000A1298 /* STTableViewController.m */,
+				28286653195A9C4B00DC0492 /* STTableViewCell.h */,
+				28286654195A9C4B00DC0492 /* STTableViewCell.m */,
 				284CE6BA1956C303000A1298 /* STFeedLoader.h */,
 				284CE6BB1956C303000A1298 /* STFeedLoader.m */,
 				284CE6B719557850000A1298 /* STFeedItem.h */,
@@ -311,6 +316,7 @@
 				284CE6B919557850000A1298 /* STFeedItem.m in Sources */,
 				284CE69019555A48000A1298 /* main.m in Sources */,
 				284CE69419555A48000A1298 /* STAppDelegate.m in Sources */,
+				28286655195A9C4B00DC0492 /* STTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,7 +47,7 @@
                                     <outlet property="topItemTitle" destination="RHG-Op-KjQ" id="UvX-9Q-hg1"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StandardCell" rowHeight="150" id="MGW-1p-1mt">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StandardCell" rowHeight="150" id="MGW-1p-1mt" customClass="STTableViewCell">
                                 <rect key="frame" x="0.0" y="197" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGW-1p-1mt" id="JQs-Pi-Uod">
@@ -55,7 +55,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News title goes here" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gbd-sx-9Y1">
-                                            <rect key="frame" x="20" y="79" width="280" height="50"/>
+                                            <rect key="frame" x="20" y="78" width="280" height="51"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="highlightedColor"/>
@@ -68,6 +68,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemTimeAgo" destination="6a2-kZ-740" id="wAf-jU-1di"/>
+                                    <outlet property="itemTitle" destination="gbd-sx-9Y1" id="Rxu-pl-VK8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
