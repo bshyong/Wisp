@@ -36,7 +36,15 @@
         NSDate *pubDate = [df dateFromString:[e child:@"pubDate"].text];
         new_item.pubDate = pubDate;
         // TODO: parse for larger version of picture
-        new_item.imageURL = [NSURL URLWithString:[[e child:@"content"] attribute:@"url"]];
+    
+        NSString *fullImageUrlString = [[e child:@"content"] attribute:@"url"];
+        if (fullImageUrlString){
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"http://(.+)" options:0 error:NULL];
+            NSTextCheckingResult *regexMatch = [regex firstMatchInString:fullImageUrlString options:0 range:NSMakeRange(0, [fullImageUrlString length])];
+            NSString *parsedImageUrlString = [fullImageUrlString substringWithRange:[regexMatch rangeAtIndex:0]];
+            new_item.imageURL = [NSURL URLWithString:parsedImageUrlString];
+        }
+
         // add new item to array of items
         [results addObject:new_item];
     }
