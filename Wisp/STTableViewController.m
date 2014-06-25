@@ -101,27 +101,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     STFeedItem *item = [self.items objectAtIndex:indexPath.row];
-//        NSLog(@"image URL: %@", item.imageURL);
+    
     if(indexPath.row==0){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopCell" forIndexPath:indexPath];
+        if (item.imageURL) {
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL: [item imageURL]];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
+        } else {
+            //  set cell background view to solid color
+        }
         STTopCell *topCell = (STTopCell *)cell;
         topCell.topDate.text = @"topDate";
         topCell.topItemTimeAgo.text = @"topTimeAgo";
         [topCell.topItemTitle setNumberOfLines:0];
         [topCell.topItemTitle sizeToFit];
         topCell.topItemTitle.text = [item title];
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [item imageURL]];
-        topCell.topItemImage.image = [UIImage imageWithData:imageData];
         return topCell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
+        if (item.imageURL) {
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL: [item imageURL]];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
+        } else {
+            //  set cell background view to solid color
+        }
         STTableViewCell *standardCell = (STTableViewCell *)cell;
         standardCell.itemTimeAgo.text = @"timeAgo";
         [standardCell.itemTitle setNumberOfLines:0];
         [standardCell.itemTitle sizeToFit];
         standardCell.itemTitle.text = [item title];
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [item imageURL]];
-        standardCell.itemImage.image = [UIImage imageWithData:imageData];
         return standardCell;
     }
     return nil;

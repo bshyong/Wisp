@@ -39,10 +39,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GFG-oe-gf1">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="RHG-Op-KjQ" firstAttribute="leading" secondItem="ivt-qb-RGH" secondAttribute="leading" constant="20" id="IJt-mh-ZZc"/>
@@ -52,7 +48,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="topDate" destination="kDt-hQ-IGh" id="y9Q-ZK-3GH"/>
-                                    <outlet property="topItemImage" destination="GFG-oe-gf1" id="5jb-sy-rnN"/>
                                     <outlet property="topItemTimeAgo" destination="h41-8m-Y2g" id="g7f-32-I86"/>
                                     <outlet property="topItemTitle" destination="RHG-Op-KjQ" id="UvX-9Q-hg1"/>
                                     <segue destination="SXh-CU-Pn3" kind="push" identifier="showFeedItem" id="iDq-7I-cy3"/>
@@ -77,10 +72,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-Zt-NzR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="gbd-sx-9Y1" firstAttribute="leading" secondItem="JQs-Pi-Uod" secondAttribute="leading" constant="20" id="2N9-mG-fj4"/>
@@ -89,7 +80,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemImage" destination="SRx-Zt-NzR" id="liT-Ad-gKU"/>
                                     <outlet property="itemTimeAgo" destination="6a2-kZ-740" id="wAf-jU-1di"/>
                                     <outlet property="itemTitle" destination="gbd-sx-9Y1" id="Rxu-pl-VK8"/>
                                     <segue destination="SXh-CU-Pn3" kind="push" identifier="showFeedItem" id="Rfn-sd-RIg"/>

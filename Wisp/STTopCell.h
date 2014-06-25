@@ -12,6 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *topDate;
 @property (weak, nonatomic) IBOutlet UILabel *topItemTimeAgo;
 @property (weak, nonatomic) IBOutlet UILabel *topItemTitle;
-@property (weak, nonatomic) IBOutlet UIImageView *topItemImage;
 
 @end
