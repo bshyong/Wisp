@@ -120,12 +120,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
     STTableViewCell *standardCell = (STTableViewCell *)cell;
-    
-    if (item.imageURL) {
-        
         UIImageView *imageBackground = [[UIImageView alloc] init];
+    if (item.imageURL) {
         imageBackground.image = item.imageData;
-
         // Calculate label height to generate overlay
         CGSize maximumLabelSize = CGSizeMake(280, 4*cell.frame.size.height/9);
         CGRect expectedLabelSize = [[item title] boundingRectWithSize:maximumLabelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:standardCell.itemTitle.font} context:nil];
@@ -143,7 +140,15 @@
     // set cell background color
     // items are assigned a color when initialized
     cell.backgroundColor = [item color];
-    standardCell.itemTimeAgo.text = item.pubDate.timeAgoSinceNow;
+    NSString *timeAgoString = item.pubDate.timeAgoSinceNow;
+    standardCell.itemTimeAgo.text = timeAgoString;
+    
+    // generate overlay for TimeAgo flag
+    CGRect timeAgoLabelSize = [timeAgoString boundingRectWithSize:CGSizeMake(320, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:standardCell.itemTimeAgo.font} context:nil];
+    UIView *timeAgoOverlay = [[UIView alloc] initWithFrame:CGRectMake(standardCell.frame.size.width-25-timeAgoLabelSize.size.width, 17.5, timeAgoLabelSize.size.width+10, timeAgoLabelSize.size.height+5)];
+    [timeAgoOverlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.45]];
+    [imageBackground addSubview:timeAgoOverlay];
+    
     standardCell.itemTitle.text = [item title];
     return standardCell;
 }
