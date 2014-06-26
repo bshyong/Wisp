@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B6D3A6C6-5047-4A9F-8A69-8DC9B9614DD5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NYXImagesKit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5C123EEF-5E1E-4809-8CCB-E1952C821722</key>
+		<string>ssh://github.com/Nyx0uf/NYXImagesKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NYXImagesKit.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5C123EEF-5E1E-4809-8CCB-E1952C821722</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Nyx0uf/NYXImagesKit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5C123EEF-5E1E-4809-8CCB-E1952C821722</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5C123EEF-5E1E-4809-8CCB-E1952C821722</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NYXImagesKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
