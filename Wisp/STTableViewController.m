@@ -12,7 +12,6 @@
 #import "STWebViewController.h"
 #import "STFeedItem.h"
 #import "NYXImagesKit.h"
-#import "NYXProgressiveImageView.h"
 
 @interface STTableViewController ()
 {
@@ -124,17 +123,8 @@
     if (item.imageURL) {
         
         UIImageView *imageBackground = [[UIImageView alloc] init];
-        
-        UIImage *image = item.imageData;
-        if (image.size.height > image.size.width) {
-            UIImage *resizedImage = [image scaleToFitSize:(CGSize){320, 320/image.size.width*image.size.height}];
-            UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeTopCenter];
-            imageBackground.image = croppedImage;
-        } else {
-            UIImage *resizedImage = [image scaleToFitSize:(CGSize){180*image.size.width/image.size.height, 180}];
-            UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeCenter];
-            imageBackground.image = croppedImage;
-        }
+        imageBackground.image = item.imageData;
+
         // Calculate label height to generate overlay
         CGSize maximumLabelSize = CGSizeMake(280, 4*cell.frame.size.height/9);
         CGRect expectedLabelSize = [[item title] boundingRectWithSize:maximumLabelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:standardCell.itemTitle.font} context:nil];

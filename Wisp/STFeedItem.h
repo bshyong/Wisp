@@ -16,4 +16,5 @@
     @property(strong, nonatomic) NSString *source;
     @property(strong, nonatomic) UIImage *imageData;
     @property(strong, nonatomic) UIColor *color;
+    @property(nonatomic, assign) BOOL imageCropped;
 @end

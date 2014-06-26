@@ -10,6 +10,7 @@
 #import "RXMLElement.h"
 #import "STFeedItem.h"
 #import "AFNetworking.h"
+#import "NYXImagesKit.h"
 
 
 @implementation STFeedLoader
@@ -50,7 +51,23 @@
             AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:imageRequest];
             requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
             [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                new_item.imageData = responseObject;
+//                new_item.imageData = responseObject;
+                
+                UIImage *image = responseObject;
+                
+                if (image.size.height > image.size.width) {
+                    UIImage *resizedImage = [image scaleToFitSize:(CGSize){320, 320/image.size.width*image.size.height}];
+                    UIImage *croppedImage = [resizedImage cropToSize:(CGSize){320, 180} usingMode:NYXCropModeTopCenter];
+                    new_item.imageData = croppedImage;
+                    new_item.imageCropped = YES;
+                } else {
+                    UIImage *resizedImage = [image scaleToFitSize:(CGSize){180*image.size.width/image.size.height, 180}];
+                    UIImage *croppedImage = [resizedImage cropToSize:(CGSize){320, 180} usingMode:NYXCropModeCenter];
+                    new_item.imageData = croppedImage;
+                    new_item.imageCropped = YES;
+                }
+                
+                
                 [[self delegate] performSelectorOnMainThread:@selector(imageLoadedForItemAtIndex:) withObject:[NSNumber numberWithInteger:count] waitUntilDone:NO];
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

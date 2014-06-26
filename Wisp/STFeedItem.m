@@ -19,6 +19,7 @@
         UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
         //  set cell background view to random solid color from a palette
         self.color = color;
+        self.imageCropped = NO;
         return self;
     }
     return nil;
