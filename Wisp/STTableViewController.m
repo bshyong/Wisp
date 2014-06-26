@@ -35,7 +35,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EEEE, MMM dd"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    NSString *title = @"#entertainment";
+    
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ ~ %@", dateString, title];
+//    self.navigationController.navigationBar.topItem.prompt = title;
+    //  hide the status bar
+//  [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 
     feedURL = [NSURL URLWithString:@"https://tw.news.yahoo.com/rss/entertainment"];
     
