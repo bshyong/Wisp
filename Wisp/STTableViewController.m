@@ -127,58 +127,37 @@
         return topCell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
-
+        
         if (item.imageURL) {
-            
-//            NYXProgressiveImageView *imageBackground = [[NYXProgressiveImageView alloc] initWithFrame:cell.frame];
-//            [imageBackground loadImageAtURL:item.imageURL];
             
             UIImageView *imageBackground = [[UIImageView alloc] init];
             
             UIImage *image = item.imageData;
             if (image.size.height > image.size.width) {
-             UIImage *image = item.imageData;
                 UIImage *resizedImage = [image scaleToFitSize:(CGSize){320, 320/image.size.width*image.size.height}];
                 UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeTopCenter];
                 imageBackground.image = croppedImage;
             } else {
-               UIImage *image = item.imageData;
                 UIImage *resizedImage = [image scaleToFitSize:(CGSize){150*image.size.width/image.size.height, 150}];
                 UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeCenter];
                 imageBackground.image = croppedImage;
             }
-//UIImage* scaled2 = [myImage scaleToFitSize:(CGSize){width, height}];
-//            scale so that width is 320, then crop the top 150 pixel slice
-//            if image is wide
-//            scale so that height is 150, then crop the middle 320 pixel slice
-            
-//            imageBackground.image = image;
-            
-//            UIImage *image = [item.imageData cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeTopCenter];
-//            UIImageView *imageBackground = [[UIImageView alloc] initWithImage:image];
 
-
-//            CGRect newFrame = imageBackground.frame;
-//            newFrame.size.height = 150;
-//            imageBackground.frame = newFrame;
-//            imageBackground.contentMode = UIViewContentModeScaleAspectFill;
-//            imageBackground.bounds = newFrame;
-//            imageBackground.clipsToBounds = YES;
-
-            CAGradientLayer *gradient = [CAGradientLayer layer];
-            gradient.frame = CGRectMake(0, 5*imageBackground.frame.size.height / 9, imageBackground.frame.size.width, 4*imageBackground.frame.size.height / 9);
-            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-            gradient.opacity = 0.5;
-            [imageBackground.layer insertSublayer:gradient atIndex:0];
-//            UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, imageBackground.frame.size.height / 2, imageBackground.frame.size.width, imageBackground.frame.size.height / 2)];
-//            [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
-//            [imageBackground addSubview:overlay];
+//            CAGradientLayer *gradient = [CAGradientLayer layer];
+//            gradient.frame = CGRectMake(0, 5*imageBackground.frame.size.height / 9, imageBackground.frame.size.width, 4*imageBackground.frame.size.height / 9);
+//            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+//            gradient.opacity = 1;
+//            [imageBackground.layer insertSublayer:gradient atIndex:0];
+            UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, imageBackground.frame.size.height / 2, imageBackground.frame.size.width, imageBackground.frame.size.height / 2)];
+            [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+            [imageBackground addSubview:overlay];
             cell.backgroundView = imageBackground;
         } else {
+            // reset cell background view since cells are dequeued and reused!
             cell.backgroundView = nil;
-            //  set cell background view to solid color
-            cell.backgroundColor = [UIColor grayColor];
         }
+        //  set cell background view to random solid color from a palette
+        cell.backgroundColor = [UIColor grayColor];
         STTableViewCell *standardCell = (STTableViewCell *)cell;
         standardCell.itemTimeAgo.text = @"timeAgo";
         [standardCell.itemTitle setNumberOfLines:0];
