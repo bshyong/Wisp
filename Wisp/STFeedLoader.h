@@ -17,6 +17,7 @@
 // in any class using this delegate
 -(void)processCompleted:(NSArray *)results;
 -(void)processHasErrors;
+-(void)imageLoadedForItemAtIndex:(NSNumber *)index;
 
 @end
 

@@ -2,6 +2,8 @@
 # platform :ios, "6.0"
 
 target "Wisp" do
+platform :ios, '7.0'
+pod "AFNetworking", "~> 2.0"
 pod 'RaptureXML'
 end
 

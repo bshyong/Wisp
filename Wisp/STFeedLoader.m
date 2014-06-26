@@ -9,6 +9,8 @@
 #import "STFeedLoader.h"
 #import "RXMLElement.h"
 #import "STFeedItem.h"
+#import "AFNetworking.h"
+
 
 @implementation STFeedLoader
 
@@ -23,7 +25,8 @@
     RXMLElement *root_node = [[RXMLElement elementFromXMLData:feed_data] child:@"channel"];
     NSArray *feed_items = [root_node children:@"item"];
     NSMutableArray *results = [NSMutableArray arrayWithCapacity:feed_items.count];
-
+    NSUInteger count = 0;
+    
     for (RXMLElement *e in feed_items) {
         STFeedItem *new_item = [[STFeedItem alloc] init];
         new_item.title = [e child:@"title"].text;
@@ -35,18 +38,33 @@
         [df setLocale:[NSLocale localeWithLocaleIdentifier:@"EN"]];
         NSDate *pubDate = [df dateFromString:[e child:@"pubDate"].text];
         new_item.pubDate = pubDate;
-        // TODO: parse for larger version of picture
-    
         NSString *fullImageUrlString = [[e child:@"content"] attribute:@"url"];
+
         if (fullImageUrlString){
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"http://(.+)" options:0 error:NULL];
             NSTextCheckingResult *regexMatch = [regex firstMatchInString:fullImageUrlString options:0 range:NSMakeRange(0, [fullImageUrlString length])];
             NSString *parsedImageUrlString = [fullImageUrlString substringWithRange:[regexMatch rangeAtIndex:0]];
             new_item.imageURL = [NSURL URLWithString:parsedImageUrlString];
+
+            NSURLRequest *imageRequest = [NSURLRequest requestWithURL:new_item.imageURL];
+            AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:imageRequest];
+            requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+            [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                new_item.imageData = responseObject;
+                [[self delegate] performSelectorOnMainThread:@selector(imageLoadedForItemAtIndex:) withObject:[NSNumber numberWithInteger:count] waitUntilDone:NO];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Image error: %@", error);
+            }];
+            [requestOperation start];
+        } else {
+            new_item.imageURL = nil;
+            new_item.imageData = nil;
         }
 
         // add new item to array of items
         [results addObject:new_item];
+        count++;
     }
 
     // call delegate method to indicate that method has completed
