@@ -11,5 +11,4 @@
 @interface STTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (weak, nonatomic) IBOutlet UILabel *itemTimeAgo;
-
 @end

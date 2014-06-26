@@ -15,4 +15,5 @@
     @property(strong, nonatomic) NSURL *itemURL;
     @property(strong, nonatomic) NSString *source;
     @property(strong, nonatomic) UIImage *imageData;
+    @property(strong, nonatomic) UIColor *color;
 @end
