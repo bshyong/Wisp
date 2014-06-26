@@ -143,13 +143,8 @@
                 imageBackground.image = croppedImage;
             }
 
-//            CAGradientLayer *gradient = [CAGradientLayer layer];
-//            gradient.frame = CGRectMake(0, 5*imageBackground.frame.size.height / 9, imageBackground.frame.size.width, 4*imageBackground.frame.size.height / 9);
-//            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-//            gradient.opacity = 1;
-//            [imageBackground.layer insertSublayer:gradient atIndex:0];
-            UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, imageBackground.frame.size.height / 2, imageBackground.frame.size.width, imageBackground.frame.size.height / 2)];
-            [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+            UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height / 2, cell.frame.size.width, cell.frame.size.height / 2)];
+            [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
             [imageBackground addSubview:overlay];
             cell.backgroundView = imageBackground;
         } else {
