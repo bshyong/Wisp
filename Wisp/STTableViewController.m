@@ -109,83 +109,44 @@
 {
     STFeedItem *item = [self.items objectAtIndex:indexPath.row];
     
-    if(indexPath.row==0 && false){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopCell" forIndexPath:indexPath];
-        if (item.imageURL) {
-            
-            UIImageView *imageBackground = [[UIImageView alloc] init];
-            
-            UIImage *image = item.imageData;
-            if (image.size.height > image.size.width) {
-                UIImage *resizedImage = [image scaleToFitSize:(CGSize){320, 320/image.size.width*image.size.height}];
-                UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeTopCenter];
-                imageBackground.image = croppedImage;
-            } else {
-                UIImage *resizedImage = [image scaleToFitSize:(CGSize){180*image.size.width/image.size.height, 180}];
-                UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeCenter];
-                imageBackground.image = croppedImage;
-            }
-            
-            UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height / 2, cell.frame.size.width, cell.frame.size.height / 2)];
-            [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.45]];
-            [imageBackground addSubview:overlay];
-            cell.backgroundView = imageBackground;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
+    STTableViewCell *standardCell = (STTableViewCell *)cell;
+    
+    if (item.imageURL) {
+        
+        UIImageView *imageBackground = [[UIImageView alloc] init];
+        
+        UIImage *image = item.imageData;
+        if (image.size.height > image.size.width) {
+            UIImage *resizedImage = [image scaleToFitSize:(CGSize){320, 320/image.size.width*image.size.height}];
+            UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeTopCenter];
+            imageBackground.image = croppedImage;
         } else {
-            // reset cell background view since cells are dequeued and reused!
-            cell.backgroundView = nil;
+            UIImage *resizedImage = [image scaleToFitSize:(CGSize){180*image.size.width/image.size.height, 180}];
+            UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeCenter];
+            imageBackground.image = croppedImage;
         }
-        
-        cell.backgroundColor = [item color];
-        
-        STTopCell *topCell = (STTopCell *)cell;
-        topCell.topDate.text = @"topDate";
-        topCell.topItemTimeAgo.text = @"topTimeAgo";
-        [topCell.topItemTitle setNumberOfLines:0];
-        [topCell.topItemTitle sizeToFit];
-        topCell.topItemTitle.text = [item title];
-        return topCell;
-    } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
-        
-        if (item.imageURL) {
-            
-            UIImageView *imageBackground = [[UIImageView alloc] init];
-            
-            UIImage *image = item.imageData;
-            if (image.size.height > image.size.width) {
-                UIImage *resizedImage = [image scaleToFitSize:(CGSize){320, 320/image.size.width*image.size.height}];
-                UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeTopCenter];
-                imageBackground.image = croppedImage;
-            } else {
-                UIImage *resizedImage = [image scaleToFitSize:(CGSize){180*image.size.width/image.size.height, 180}];
-                UIImage *croppedImage = [resizedImage cropToSize:(CGSize){cell.frame.size.width, cell.frame.size.height} usingMode:NYXCropModeCenter];
-                imageBackground.image = croppedImage;
-            }
-            
-            CGSize maximumLabelSize = CGSizeMake(280, 4*cell.frame.size.height/9);
-            STTableViewCell *standardCell = (STTableViewCell *)cell;
-            CGRect expectedLabelSize = [[item title] boundingRectWithSize:maximumLabelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:standardCell.itemTitle.font} context:nil];
-            UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-30-expectedLabelSize.size.height, cell.frame.size.width, expectedLabelSize.size.height+30)];
-            [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.45]];
-            [imageBackground addSubview:overlay];
-            cell.backgroundView = imageBackground;
-        } else {
-            // reset cell background view since cells are dequeued and reused!
-            cell.backgroundView = nil;
-        }
+        // Calculate label height to generate overlay
+        CGSize maximumLabelSize = CGSizeMake(280, 4*cell.frame.size.height/9);
+        CGRect expectedLabelSize = [[item title] boundingRectWithSize:maximumLabelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:standardCell.itemTitle.font} context:nil];
 
-        // set cell background color
-        // items are assigned a color when initialized
-        cell.backgroundColor = [item color];
-        
-        STTableViewCell *standardCell = (STTableViewCell *)cell;
-        standardCell.itemTimeAgo.text = @"timeAgo";
-//        [standardCell.itemTitle setNumberOfLines:0];
-//        [standardCell.itemTitle sizeToFit];
-        standardCell.itemTitle.text = [item title];
-        return standardCell;
+        UIView *overlay = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-30-expectedLabelSize.size.height, cell.frame.size.width, expectedLabelSize.size.height+30)];
+        [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.45]];
+        [imageBackground addSubview:overlay];
+
+        cell.backgroundView = imageBackground;
+    } else {
+        // reset cell background view since cells are dequeued and reused!
+        cell.backgroundView = nil;
     }
-    return nil;
+
+    // set cell background color
+    // items are assigned a color when initialized
+    cell.backgroundColor = [item color];
+
+    standardCell.itemTimeAgo.text = @"timeAgo";
+    standardCell.itemTitle.text = [item title];
+    return standardCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -238,9 +199,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UIViewController *sc = (UIViewController *)segue.sourceViewController;
     if ([segue.identifier isEqualToString:@"showFeedItem"]) {
-//        [sc.navigationController setNavigationBarHidden:NO animated: NO];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         STWebViewController *wbc = (STWebViewController *)segue.destinationViewController;
         wbc.itemURL = ((STFeedItem *)[self.items objectAtIndex:indexPath.row]).itemURL;
