@@ -12,6 +12,7 @@
 #import "STWebViewController.h"
 #import "STFeedItem.h"
 #import "NYXImagesKit.h"
+#import "DateTools.h"
 
 @interface STTableViewController ()
 {
@@ -142,8 +143,7 @@
     // set cell background color
     // items are assigned a color when initialized
     cell.backgroundColor = [item color];
-
-    standardCell.itemTimeAgo.text = @"timeAgo";
+    standardCell.itemTimeAgo.text = item.pubDate.timeAgoSinceNow;
     standardCell.itemTitle.text = [item title];
     return standardCell;
 }

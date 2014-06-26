@@ -35,7 +35,7 @@
         new_item.itemURL = [NSURL URLWithString:[e child:@"link"].text];
         // parse for date
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"EEE dd, MMM yyyy HH:mm:ss ZZZ"];
+        [df setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZ"];
         [df setLocale:[NSLocale localeWithLocaleIdentifier:@"EN"]];
         NSDate *pubDate = [df dateFromString:[e child:@"pubDate"].text];
         new_item.pubDate = pubDate;

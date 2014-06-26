@@ -27,8 +27,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="cellTime" text="time ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a2-kZ-740">
-                                            <rect key="frame" x="239" y="20" width="61" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="cellTime" text="time ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a2-kZ-740">
+                                            <rect key="frame" x="243" y="20" width="57" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,8 +37,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="gbd-sx-9Y1" firstAttribute="leading" secondItem="JQs-Pi-Uod" secondAttribute="leading" constant="20" id="2N9-mG-fj4"/>
+                                        <constraint firstItem="6a2-kZ-740" firstAttribute="top" secondItem="JQs-Pi-Uod" secondAttribute="top" constant="20" id="R9i-z9-FYe"/>
                                         <constraint firstAttribute="trailing" secondItem="gbd-sx-9Y1" secondAttribute="trailing" constant="20" id="fnH-OQ-cTp"/>
                                         <constraint firstAttribute="bottom" secondItem="gbd-sx-9Y1" secondAttribute="bottom" constant="15" id="mfd-Oa-PX5"/>
+                                        <constraint firstAttribute="trailing" secondItem="6a2-kZ-740" secondAttribute="trailing" constant="20" id="qqb-yu-lr4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
