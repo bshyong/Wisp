@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Wisp-DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Wisp-RaptureXML.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>704FADDC349540D0A1ABE6B4</key>
+		<key>29EDA5F3BBCF46888E5C86E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3AEC7C7620D432ABD6A7552</key>
+		<key>4E6A02C04AEA4CAA83A9CB20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D83527EE8E974C61A8C5EF43</key>
+		<key>9E3FED6A60DE4FDFB95AA87C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE197313569D44A38315C3B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

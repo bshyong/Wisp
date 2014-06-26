@@ -20,14 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DateTools (1.3.0)
   - RaptureXML (1.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - DateTools
   - RaptureXML
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  DateTools: aa3131160337433a152c0228a2a1be2ff4ed3e05
   RaptureXML: b9b0aca9c68c684c189af73dd5e8f8fdeec74600
 
 COCOAPODS: 0.33.1

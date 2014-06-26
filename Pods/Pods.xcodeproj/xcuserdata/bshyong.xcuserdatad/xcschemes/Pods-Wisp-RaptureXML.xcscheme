@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D83527EE8E974C61A8C5EF43"
+               BlueprintIdentifier = "4E6A02C04AEA4CAA83A9CB20"
                BuildableName = "libPods-Wisp-RaptureXML.a"
                BlueprintName = "Pods-Wisp-RaptureXML"
                ReferencedContainer = "container:Pods.xcodeproj">
